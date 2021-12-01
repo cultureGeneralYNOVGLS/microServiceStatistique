@@ -2,10 +2,14 @@ import { ObjectId } from 'bson';
 import { Router } from 'express';
 import { StatisticService } from '../services/statistic.services';
 
+const userPing = require('../middleware/pingUser.middleware');
+const userToken = require('../middleware/userToken.middleware');
+
+
 const statisticRouter = Router();
 const statisticService = new StatisticService();
 
-statisticRouter.get('/:user',async (request, response) => {
+statisticRouter.get('/:user', userPing,async (request, response) => {
     console.log('route');
     response.json(await statisticService.getStatisticByUser(request.params.user));
 })
