@@ -1,6 +1,6 @@
 module.exports = (req: any, res: any, next: any) => {
     const fetch = require('node-fetch');
-    fetch(`http://localhost:7512/api/user/getkey`, {
+    fetch(`http://micro-service-game:3000/game/getkey`, {
         method: "GET"
     })
     .then((fetc:any) => {
