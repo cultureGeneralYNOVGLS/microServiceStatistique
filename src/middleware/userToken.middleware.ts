@@ -1,6 +1,7 @@
 module.exports = (req: any, res: any, next: any) => {
     console.log("verif Token Partie")
     const fetch = require('node-fetch');
+    
     try {
         const token = req.headers.authorization.split(' ')[1];
 

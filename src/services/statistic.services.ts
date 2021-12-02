@@ -1,5 +1,4 @@
 import { StatisticModel } from "../models/statistic.model";
-import { GameModel } from "../models/game.model";
 import { StatisticDAO } from "../dao/statistic.dao";
 import { ObjectId } from 'bson';
 
@@ -15,6 +14,7 @@ export class StatisticService {
         };
         const game = await this.statisiticDao.getStatisticByUser(user);
         let i = 0;
+
         game.forEach(element => {
             statistics.nbGoodAnswer = element.score + statistics.nbGoodAnswer;
             statistics.nbBadAnswer = element.numberQuestions - element.score + statistics.nbBadAnswer;
@@ -28,6 +28,7 @@ export class StatisticService {
         const statistics: StatisticModel[] = [];
         const game = await this.statisiticDao.getStatisticByUser(user);
         let i=0;
+
         game.forEach(element => {
             const statistic: StatisticModel = {
                 nbParty:0,
@@ -43,7 +44,6 @@ export class StatisticService {
                 statistics.push(statistic);
             }
         });
-
         return statistics;
     }
 }
