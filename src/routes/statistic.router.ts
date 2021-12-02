@@ -15,7 +15,6 @@ const statisticService = new StatisticService();
  *     description: Retrieve a statistic of user
  */
 statisticRouter.get('/:user', userPing,async (request, response) => {
-    console.log('route');
     response.json(await statisticService.getStatisticByUser(request.params.user));
 })
 
@@ -27,7 +26,6 @@ statisticRouter.get('/:user', userPing,async (request, response) => {
  *     description: Retrieve a statistic of user of category
  */
 statisticRouter.get('/:user/:category',async (request, response) => {
-    console.log('route2');
     response.json(await statisticService.getStatisticByCategoryByUser(request.params.user,new ObjectId(request.params.category)));
 })
 export default statisticRouter;
